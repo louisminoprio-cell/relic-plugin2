@@ -89,7 +89,7 @@ public class TideRelic extends Relic {
         for (double angle = 0; angle < Math.PI * 2; angle += Math.PI / 12) {
             double x = Math.cos(angle) * radius * 0.6;
             double z = Math.sin(angle) * radius * 0.6;
-            player.getWorld().spawnParticle(Particle.WATER_SPLASH,
+            player.getWorld().spawnParticle(Particle.SPLASH,
                 player.getLocation().add(x, 0.5, z), 3, 0, 0, 0, 0.1);
         }
         player.getWorld().playSound(player.getLocation(),
