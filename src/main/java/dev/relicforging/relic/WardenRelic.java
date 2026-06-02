@@ -27,7 +27,7 @@ public class WardenRelic extends Relic {
         p.removePotionEffect(PotionEffectType.SLOWNESS);
         for(Entity e:p.getNearbyEntities(6,6,6)) {
             if (TeamCompatibility.isAllied(p, e)) continue;
-            if(e instanceof LivingEntity le && le.isSprinting())
+            if(e instanceof LivingEntity le && (le instanceof Player p && p.isSprinting()))
                 le.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,3,0,false,false,true));
         }
     }
