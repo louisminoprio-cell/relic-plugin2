@@ -1,0 +1,34 @@
+name: RelicForging
+version: '${project.version}'
+main: dev.relicforging.RelicForgingPlugin
+api-version: '1.21'
+description: MMO-style relic system with abilities, leveling, and energy
+authors: [RelicForging]
+website: ''
+softdepend: [HostileTeams]
+
+commands:
+  relics:
+    description: Open the Relic menu
+    usage: /relics
+  "1":
+    description: Activate primary relic ability
+    usage: /1
+  "2":
+    description: Activate secondary relic ability
+    usage: /2
+  relic:
+    description: Relic sub-commands (xp, info, energy, help)
+    usage: /relic <xp|info|energy|help>
+  relicadmin:
+    description: Admin commands for giving relics, resetting data
+    usage: /relicadmin <give|reset|reload> [player] [relic]
+    permission: relicforging.admin
+
+permissions:
+  relicforging.use:
+    description: Allows using relics
+    default: true
+  relicforging.admin:
+    description: Allows admin relic commands
+    default: op

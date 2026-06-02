@@ -1,0 +1,151 @@
+# ======================================================
+# RelicForging Configuration
+# All values here are hot-reloadable with /relicadmin reload
+# ======================================================
+
+# ------- General ----------------------------------------
+# How often (ticks) passive effects are re-applied. 20 ticks = 1 second.
+passive-tick-interval: 20
+
+# How often (ticks) energy regenerates for equipped relics.
+energy-regen-interval: 20
+
+# Whether the action bar shows cooldown / energy info while a relic is equipped.
+show-action-bar: true
+
+# ------- Leveling ---------------------------------------
+# XP required to advance from one level to the next.
+# The system uses: xp_needed = base * (level ^ exponent)
+xp-base: 100
+xp-exponent: 1.4
+
+# Maximum level across all tiers (Tier I: 1-10, II: 11-20, III: 21-30)
+max-level: 30
+
+# ------- Relics -----------------------------------------
+relics:
+  gale:
+    display-name: "&bGale Relic"
+    max-energy: 100
+    energy-regen: 5          # energy per regen tick
+    abilities:
+      primary:
+        name: "Wind Dash"
+        energy-cost: 20
+        cooldown-ticks: 120  # 6 seconds
+      secondary:
+        name: "Sky Leap"
+        energy-cost: 35
+        cooldown-ticks: 360  # 18 seconds
+
+  ember:
+    display-name: "&6Ember Relic"
+    max-energy: 100
+    energy-regen: 4
+    abilities:
+      primary:
+        name: "Flame Burst"
+        energy-cost: 25
+        cooldown-ticks: 160  # 8 seconds
+      secondary:
+        name: "Inferno Wave"
+        energy-cost: 50
+        cooldown-ticks: 440  # 22 seconds
+
+  tide:
+    display-name: "&3Tide Relic"
+    max-energy: 110
+    energy-regen: 5
+    abilities:
+      primary:
+        name: "Tidal Push"
+        energy-cost: 20
+        cooldown-ticks: 200  # 10 seconds
+      secondary:
+        name: "Ocean Blessing"
+        energy-cost: 55
+        cooldown-ticks: 600  # 30 seconds
+
+  echo:
+    display-name: "&5Echo Relic"
+    max-energy: 90
+    energy-regen: 4
+    abilities:
+      primary:
+        name: "Ore Pulse"
+        energy-cost: 15
+        cooldown-ticks: 240  # 12 seconds
+      secondary:
+        name: "Resonance Scan"
+        energy-cost: 40
+        cooldown-ticks: 500  # 25 seconds
+
+  vanguard:
+    display-name: "&7Vanguard Relic"
+    max-energy: 120
+    energy-regen: 4
+    abilities:
+      primary:
+        name: "Fortify"
+        energy-cost: 40
+        cooldown-ticks: 400  # 20 seconds
+      secondary:
+        name: "Shield Slam"
+        energy-cost: 30
+        cooldown-ticks: 300  # 15 seconds
+
+  burrow:
+    display-name: "&eBurrow Relic"
+    max-energy: 100
+    energy-regen: 5
+    abilities:
+      primary:
+        name: "Vein Break"
+        energy-cost: 30
+        cooldown-ticks: 280  # 14 seconds
+      secondary:
+        name: "Tremor"
+        energy-cost: 40
+        cooldown-ticks: 480  # 24 seconds
+
+  warden:
+    display-name: "&0&lWarden Relic"
+    max-energy: 100
+    energy-regen: 4
+    abilities:
+      primary:
+        name: "Dirge"
+        energy-cost: 30
+        cooldown-ticks: 200
+      secondary:
+        name: "Epicentre"
+        energy-cost: 55
+        cooldown-ticks: 700
+
+  hollow:
+    display-name: "&5Hollow Relic"
+    max-energy: 100
+    energy-regen: 5
+    abilities:
+      primary:
+        name: "Singularity"
+        energy-cost: 35
+        cooldown-ticks: 280
+      secondary:
+        name: "Inversion"
+        energy-cost: 55
+        cooldown-ticks: 560
+
+  plague:
+    display-name: "&2Plague Relic"
+    max-energy: 95
+    energy-regen: 5
+    abilities:
+      primary:
+        name: "Inoculate"
+        energy-cost: 25
+        cooldown-ticks: 160
+      secondary:
+        name: "Necrotic Burst"
+        energy-cost: 45
+        cooldown-ticks: 480
