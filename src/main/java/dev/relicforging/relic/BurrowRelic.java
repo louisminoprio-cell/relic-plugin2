@@ -110,7 +110,7 @@ public class BurrowRelic extends Relic {
         ItemStack tool = player.getInventory().getItemInMainHand();
         for (Block b : vein) {
             b.breakNaturally(tool);
-            player.getWorld().spawnParticle(Particle.BLOCK_CRUMBLE,
+            player.getWorld().spawnParticle(Particle.BLOCK,
                 b.getLocation().add(0.5, 0.5, 0.5),
                 8, 0.3, 0.3, 0.3, 0.1,
                 b.getBlockData());
@@ -153,7 +153,7 @@ public class BurrowRelic extends Relic {
             double dist  = Math.random() * radius;
             double x = Math.cos(angle) * dist;
             double z = Math.sin(angle) * dist;
-            player.getWorld().spawnParticle(Particle.BLOCK_CRUMBLE,
+            player.getWorld().spawnParticle(Particle.BLOCK,
                 player.getLocation().add(x, 0.1, z),
                 5, 0.1, 0.5, 0.1, 0.05,
                 Material.GRAVEL.createBlockData());
