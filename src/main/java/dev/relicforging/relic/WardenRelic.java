@@ -16,27 +16,45 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 public class WardenRelic extends Relic {
-    public WardenRelic(RelicForgingPlugin plugin){super(plugin);}
-    public RelicType getType(){return RelicType.WARDEN;}
-    public int getCustomModelData(){return 1007;}
-    protected Material getMaterial(){return Material.SCULK_CATALYST;}
 
-    public void applyPassive(Player p, PlayerRelicData d){
+    public WardenRelic(RelicForgingPlugin plugin) {
+        super(plugin);
+    }
+
+    public RelicType getType() {
+        return RelicType.WARDEN;
+    }
+
+    public int getCustomModelData() {
+        return 1007;
+    }
+
+    protected Material getMaterial() {
+        return Material.SCULK_CATALYST;
+    }
+
+    public void applyPassive(Player p, PlayerRelicData d) {
         p.removePotionEffect(PotionEffectType.DARKNESS);
         p.removePotionEffect(PotionEffectType.BLINDNESS);
         p.removePotionEffect(PotionEffectType.SLOWNESS);
-        for (Entity e : p.getNearbyEntities(6, 6, 6)) {
-    if (TeamCompatibility.isAllied(p, e)) continue;
 
-    if (e instanceof LivingEntity le) {
-        if (le instanceof Player && ((Player) le).isSprinting()) {
-            le.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 60, 0, false, false));
+        for (Entity e : p.getNearbyEntities(6, 6, 6)) {
+            if (TeamCompatibility.isAllied(p, e)) continue;
+
+            if (e instanceof LivingEntity le) {
+                if (le instanceof Player && ((Player) le).isSprinting()) {
+                    le.addPotionEffect(new PotionEffect(
+                        PotionEffectType.SLOWNESS,
+                        60,
+                        0,
+                        false,
+                        false
+                    ));
+                }
+            }
         }
     }
 }
-        }
-    }
-
     public void removePassive(Player p){}
 
     protected void doPrimary(Player p, PlayerRelicData d){
@@ -78,4 +96,5 @@ public class WardenRelic extends Relic {
             }
         }.runTaskTimer(plugin,0L,3L);
     }
+}
 }
