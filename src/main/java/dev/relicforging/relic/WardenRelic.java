@@ -60,5 +60,8 @@ public class WardenRelic extends Relic {
 public void doSecondary(Player p, PlayerRelicData d) {
     // no secondary ability yet
      }
-  
+  @Override
+public void doPrimary(Player p, PlayerRelicData d) {
+    // no primary ability yet
+    }
 }
