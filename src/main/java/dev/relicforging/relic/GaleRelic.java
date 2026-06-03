@@ -76,7 +76,7 @@ public class GaleRelic extends Relic {
             data.setCooldown("primary", primaryCooldownTicks / 2);
         }
 
-        player.getWorld().spawnParticle(PParticle.SWEEP_ATTACK,
+        player.getWorld().spawnParticle(Particle.SWEEP_ATTACK,
             player.getLocation().add(0, 1, 0), 8, 0.3, 0.3, 0.3, 0.05);
         player.getWorld().playSound(player.getLocation(),
             Sound.ENTITY_BREEZE_WIND_BURST, 0.9f, 1.2f);
