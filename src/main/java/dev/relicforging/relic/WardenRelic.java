@@ -1,4 +1,5 @@
--package dev.relicforging.relic;
+package dev.relicforging.relic;
+
 
 import dev.relicforging.RelicForgingPlugin;
 import dev.relicforging.api.Relic;
@@ -56,4 +57,3 @@ public class WardenRelic extends Relic {
         }
     }
 }
-
