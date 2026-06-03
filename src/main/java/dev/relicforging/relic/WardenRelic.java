@@ -64,4 +64,8 @@ public void doSecondary(Player p, PlayerRelicData d) {
 public void doPrimary(Player p, PlayerRelicData d) {
     // no primary ability yet
     }
+ @Override
+public void removePassive(Player p) {
+    // clean up effects if needed
+}
 }
