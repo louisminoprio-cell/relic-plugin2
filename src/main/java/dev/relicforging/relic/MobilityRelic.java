@@ -1,5 +1,8 @@
 package dev.relicforging.relic;
 
+import java.util.Map;
+import java.util.HashMap;
+import java.util.UUID;
 import dev.relicforging.RelicForgingPlugin;
 import dev.relicforging.api.Relic;
 import dev.relicforging.api.RelicType;
@@ -8,7 +11,9 @@ import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.Bukkit;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
