@@ -17,11 +17,23 @@ import org.bukkit.potion.PotionEffectType;
 
 import java.util.*;
 
+package dev.relicforging.relic;
+
+import dev.relicforging.RelicForgingPlugin;
+import dev.relicforging.api.Relic;
+import dev.relicforging.api.PlayerRelicData;
+
+import org.bukkit.entity.Player;
+
 public class SoulboundRelic extends Relic {
 
-    public ExecutionerRelic(RelicForgingPlugin plugin) {
-        super(plugin, "Executioner");
-}
+    public SoulboundRelic(RelicForgingPlugin plugin) {
+        super(plugin, "Soulbound Core");
+    }
+
+    @Override
+    public int getCustomModelData() {
+        return 102;
     }
 
     @Override
@@ -42,22 +54,15 @@ public class SoulboundRelic extends Relic {
         Player ally = getNearbyPlayer(player, 8);
         if (ally == null) return;
 
-        // TEMP: just message until we wire damage sharing
         player.sendMessage("§aSoul Link activated with " + ally.getName());
     }
 
-    @Override
-public int getCustomModelData() {
-    return 102; // change per relic
-}
-
-private Player getNearbyPlayer(Player player, double range) {
-    for (Player p : player.getWorld().getPlayers()) {
-        if (p != player && p.getLocation().distance(player.getLocation()) <= range) {
-            return p;
+    private Player getNearbyPlayer(Player player, double range) {
+        for (Player p : player.getWorld().getPlayers()) {
+            if (p != player && p.getLocation().distance(player.getLocation()) <= range) {
+                return p;
+            }
         }
+        return null;
     }
-    return null;
 }
-}
-
