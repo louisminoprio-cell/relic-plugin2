@@ -26,14 +26,16 @@ public class MobilityRelic extends Relic {
     }
 
     @Override
-    public AbilityResult ability1(Player player) {
+    protected void doPrimary(Player player, PlayerRelicData data){
         Location loc = player.getLocation().add(player.getLocation().getDirection().multiply(5));
         player.teleport(loc);
         return AbilityResult.SUCCESS;
     }
 
+
+
     @Override
-    public AbilityResult ability2(Player player) {
+    protected void doSecondary(Player player, PlayerRelicData data){
         UUID id = player.getUniqueId();
 
         if (!recall.containsKey(id)) {
