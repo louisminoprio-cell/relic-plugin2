@@ -16,11 +16,26 @@ import org.bukkit.util.Vector;
 
 import java.util.Collection;
 
+package dev.relicforging.relic;
+
+import dev.relicforging.RelicForgingPlugin;
+import dev.relicforging.api.Relic;
+import dev.relicforging.api.PlayerRelicData;
+
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Entity;
+
 public class ExecutionerRelic extends Relic {
 
     public ExecutionerRelic(RelicForgingPlugin plugin) {
         super(plugin, "Executioner");
-};
+    }
+
+    @Override
+    public int getCustomModelData() {
+        return 101;
     }
 
     @Override
@@ -49,13 +64,8 @@ public class ExecutionerRelic extends Relic {
             double damage = target.getHealth() > target.getMaxHealth() * 0.5 ? 8 : 12;
             target.damage(damage, player);
 
-        }, 20); // 1 second
+        }, 20);
     }
-
-    @Override
-    public int getCustomModelData() {
-        return 101; // change per relic
-}
 
     private LivingEntity getTarget(Player player, double range) {
         for (Entity e : player.getNearbyEntities(range, range, range)) {
@@ -64,7 +74,5 @@ public class ExecutionerRelic extends Relic {
             }
         }
         return null;
-}
-
-    // Passive handled in damage listener
+    }
 }
