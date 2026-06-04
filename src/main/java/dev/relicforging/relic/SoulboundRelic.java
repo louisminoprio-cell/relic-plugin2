@@ -47,7 +47,7 @@ public class SoulboundRelic extends Relic {
 
     @Override
 public int getCustomModelData() {
-    return 101; // change per relic
+    return 102; // change per relic
 }
 }
 
