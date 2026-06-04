@@ -26,7 +26,7 @@ public class ExecutionerRelic extends Relic {
     }
 
     @Override
-    protected void doPrimary(Player player) {
+    protected void doPrimary(Player player, PlayerRelicData data) {
         LivingEntity target = getTarget(player, 4);
         if (target == null) return;
 
@@ -40,7 +40,7 @@ public class ExecutionerRelic extends Relic {
     }
 
     @Override
-    protected void doSecondary(Player player) {
+    protected void doSecondary(Player player, PlayerRelicData data) {
         LivingEntity target = getTarget(player, 8);
         if (target == null) return;
 
