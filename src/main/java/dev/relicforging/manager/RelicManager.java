@@ -65,9 +65,9 @@ public class RelicManager {
         register(new WardenRelic(plugin));
         register(new HollowRelic(plugin));
         register(new PlagueRelic(plugin));
-        register(new ExecutionerRelic());
-        register(new SoulboundRelic());
-        register(new MobilityRelic());
+        register(new ExecutionerRelic(plugin));
+        register(new SoulboundRelic(plugin));
+        register(new MobilityRelic(plugin));
 
         startTasks();
         plugin.getLogger().info("RelicManager started — " + relics.size() + " relics registered.");
