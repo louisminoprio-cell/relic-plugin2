@@ -18,8 +18,9 @@ import java.util.Collection;
 
 public class ExecutionerRelic extends Relic {
 
-    public ExecutionerRelic() {
-        super("Executioner");
+    public ExecutionerRelic(RelicForgingPlugin plugin) {
+        super(plugin, "Executioner");
+};
     }
 
     @Override
