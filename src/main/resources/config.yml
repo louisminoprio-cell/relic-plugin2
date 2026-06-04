@@ -32,11 +32,11 @@ relics:
       primary:
         name: "Wind Dash"
         energy-cost: 20
-        cooldown-ticks: 120  # 6 seconds
+        cooldown-ticks: 200  # 10 seconds
       secondary:
         name: "Sky Leap"
         energy-cost: 35
-        cooldown-ticks: 360  # 18 seconds
+        cooldown-ticks: 720  # 720 seconds
 
   ember:
     display-name: "&6Ember Relic"
@@ -46,11 +46,11 @@ relics:
       primary:
         name: "Flame Burst"
         energy-cost: 25
-        cooldown-ticks: 160  # 8 seconds
+        cooldown-ticks: 300  # 15 seconds
       secondary:
         name: "Inferno Wave"
         energy-cost: 50
-        cooldown-ticks: 440  # 22 seconds
+        cooldown-ticks: 3600  # 180 seconds
 
   tide:
     display-name: "&3Tide Relic"
@@ -64,7 +64,7 @@ relics:
       secondary:
         name: "Ocean Blessing"
         energy-cost: 55
-        cooldown-ticks: 600  # 30 seconds
+        cooldown-ticks: 4800  # 240 seconds
 
   echo:
     display-name: "&5Echo Relic"
@@ -88,11 +88,11 @@ relics:
       primary:
         name: "Fortify"
         energy-cost: 40
-        cooldown-ticks: 400  # 20 seconds
+        cooldown-ticks: 1200  # 60 seconds
       secondary:
         name: "Shield Slam"
         energy-cost: 30
-        cooldown-ticks: 300  # 15 seconds
+        cooldown-ticks: 4800  # 120 seconds
 
   burrow:
     display-name: "&eBurrow Relic"
@@ -116,11 +116,11 @@ relics:
       primary:
         name: "Dirge"
         energy-cost: 30
-        cooldown-ticks: 200
+        cooldown-ticks: 600
       secondary:
         name: "Epicentre"
         energy-cost: 55
-        cooldown-ticks: 700
+        cooldown-ticks: 4800
 
   hollow:
     display-name: "&5Hollow Relic"
@@ -130,11 +130,11 @@ relics:
       primary:
         name: "Singularity"
         energy-cost: 35
-        cooldown-ticks: 280
+        cooldown-ticks: 720
       secondary:
         name: "Inversion"
         energy-cost: 55
-        cooldown-ticks: 560
+        cooldown-ticks: 4800
 
   plague:
     display-name: "&2Plague Relic"
@@ -144,8 +144,50 @@ relics:
       primary:
         name: "Inoculate"
         energy-cost: 25
-        cooldown-ticks: 160
+        cooldown-ticks: 600
       secondary:
         name: "Necrotic Burst"
         energy-cost: 45
-        cooldown-ticks: 480
+        cooldown-ticks: 3600
+  executioner:
+    display-name: "&7Executioner Relic"
+    max-energy: 100
+    energy-regen: 3
+    abilities:
+      primary:
+         name: "Launch"
+        energy-cost: 35
+        cooldown-ticks: 600
+      secondary:
+        name: "&2Eploitation"
+        energy-cost: 65
+        cooldown-ticks: 7200
+
+  soulbound:
+    display-name: "&9Soulbound Relic"
+    max-energy: 100
+     energy-regen: 3
+    abilities:
+      primary:
+        name: "Soul transfer"
+        energy-cost: 35
+        cooldown-ticks: 600
+      secondary:
+        name: "Soul Link"
+        energy-cost: 65
+        cooldown-ticks: 7200
+  
+
+  mobility:
+    display-name: "Position Relic"
+    max-energy: 100
+    energy-regen: 3
+    abilities:
+      primary:
+        name: "Rift Blink"
+        energy-cost: 35
+        cooldown-ticks: 300
+      secondary:
+        name: "Spatial Recall"
+        energy-cost: 65
+        cooldown-ticks: 20000
