@@ -1,34 +1,28 @@
 package dev.relicforging.relic;
 
+import dev.relicforging.RelicForgingPlugin;
+import dev.relicforging.api.Relic;
+import dev.relicforging.api.PlayerRelicData;
+
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+
 import java.util.Map;
 import java.util.HashMap;
 import java.util.UUID;
-import dev.relicforging.RelicForgingPlugin;
-import dev.relicforging.api.Relic;
-import dev.relicforging.api.RelicType;
-import dev.relicforging.data.PlayerRelicData;
-import org.bukkit.*;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
-import org.bukkit.Bukkit;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
-
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 public class MobilityRelic extends Relic {
 
     private final Map<UUID, Location> recall = new HashMap<>();
 
-   public ExecutionerRelic(RelicForgingPlugin plugin) {
-        super(plugin, "Executioner");
-}
+    public MobilityRelic(RelicForgingPlugin plugin) {
+        super(plugin, "Mobility Core");
+    }
+
+    @Override
+    public int getCustomModelData() {
+        return 103;
     }
 
     @Override
@@ -57,9 +51,4 @@ public class MobilityRelic extends Relic {
             player.teleport(recall.remove(id));
         }
     }
-
-    @Override
-public int getCustomModelData() {
-    return 103; // change per relic
-}
 }
