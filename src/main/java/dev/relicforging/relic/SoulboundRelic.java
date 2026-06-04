@@ -19,8 +19,9 @@ import java.util.*;
 
 public class SoulboundRelic extends Relic {
 
-    public SoulboundRelic() {
-        super("Soulbound Core");
+    public ExecutionerRelic(RelicForgingPlugin plugin) {
+        super(plugin, "Executioner");
+}
     }
 
     @Override
