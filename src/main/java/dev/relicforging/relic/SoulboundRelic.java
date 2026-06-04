@@ -50,5 +50,14 @@ public class SoulboundRelic extends Relic {
 public int getCustomModelData() {
     return 102; // change per relic
 }
+
+private Player getNearbyPlayer(Player player, double range) {
+    for (Player p : player.getWorld().getPlayers()) {
+        if (p != player && p.getLocation().distance(player.getLocation()) <= range) {
+            return p;
+        }
+    }
+    return null;
+}
 }
 
