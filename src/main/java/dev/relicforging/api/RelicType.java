@@ -14,7 +14,11 @@ public enum RelicType {
     BURROW,
     WARDEN,
     HOLLOW,
-    PLAGUE;
+    PLAGUE,
+    EXECUTIONER,
+    SOULBOUND,
+    MOBILITY;
+    
 
     /** Returns the lowercase config key for this relic (e.g. "gale"). */
     public String configKey() {
