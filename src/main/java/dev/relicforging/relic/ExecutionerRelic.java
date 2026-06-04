@@ -2,7 +2,7 @@ package dev.relicforging.relic;
 
 import dev.relicforging.RelicForgingPlugin;
 import dev.relicforging.api.Relic;
-import dev.relicforging.api.PlayerRelicData;
+import dev.relicforging.api.RelicType;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -12,7 +12,12 @@ import org.bukkit.entity.Entity;
 public class ExecutionerRelic extends Relic {
 
     public ExecutionerRelic(RelicForgingPlugin plugin) {
-        super(plugin, "Executioner");
+        super(plugin);
+    }
+
+    @Override
+    public RelicType getType() {
+        return RelicType.EXECUTIONER; // make sure this exists
     }
 
     @Override
@@ -21,7 +26,7 @@ public class ExecutionerRelic extends Relic {
     }
 
     @Override
-    protected void doPrimary(Player player, PlayerRelicData data) {
+    protected void doPrimary(Player player) {
         LivingEntity target = getTarget(player, 4);
         if (target == null) return;
 
@@ -35,13 +40,12 @@ public class ExecutionerRelic extends Relic {
     }
 
     @Override
-    protected void doSecondary(Player player, PlayerRelicData data) {
+    protected void doSecondary(Player player) {
         LivingEntity target = getTarget(player, 8);
         if (target == null) return;
 
         Bukkit.getScheduler().runTaskLater(plugin, () -> {
             if (!target.isValid()) return;
-            if (target.getLocation().distance(player.getLocation()) > 8) return;
 
             double damage = target.getHealth() > target.getMaxHealth() * 0.5 ? 8 : 12;
             target.damage(damage, player);
