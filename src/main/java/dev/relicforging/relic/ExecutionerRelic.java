@@ -51,5 +51,10 @@ public class ExecutionerRelic extends Relic {
         }, 20); // 1 second
     }
 
+    @Override
+    public int getCustomModelData() {
+        return 101; // change per relic
+}
+
     // Passive handled in damage listener
 }
