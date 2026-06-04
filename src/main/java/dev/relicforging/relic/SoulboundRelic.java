@@ -24,14 +24,15 @@ public class SoulboundRelic extends Relic {
     }
 
     @Override
-    public void onTick(Player player) {
+    protected void doPrimary(Player player, PlayerRelicData data) {
         if (player.getHealth() <= player.getMaxHealth() * 0.3) {
             player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 100, 1));
         }
     }
 
+
     @Override
-    public AbilityResult ability1(Player player) {
+    protected void doSecondary(Player player, PlayerRelicData data) {
         Player ally = getNearbyPlayer(player, 6);
         if (ally == null) return AbilityResult.FAIL;
 
@@ -45,8 +46,9 @@ public class SoulboundRelic extends Relic {
         return AbilityResult.SUCCESS;
     }
 
+
     @Override
-    public AbilityResult ability2(Player player) {
+    protected void doSecondary(Player player, PlayerRelicData data){
         Player ally = getNearbyPlayer(player, 8);
         if (ally == null) return AbilityResult.FAIL;
 
