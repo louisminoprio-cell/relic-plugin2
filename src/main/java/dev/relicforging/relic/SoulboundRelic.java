@@ -1,22 +1,3 @@
-
-package dev.relicforging.relic;
-
-import dev.relicforging.RelicForgingPlugin;
-import dev.relicforging.api.Relic;
-import dev.relicforging.api.RelicType;
-import dev.relicforging.data.PlayerRelicData;
-import dev.relicforging.integration.TeamCompatibility;
-import org.bukkit.*;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
-
-import java.util.*;
-
 package dev.relicforging.relic;
 
 import dev.relicforging.RelicForgingPlugin;
