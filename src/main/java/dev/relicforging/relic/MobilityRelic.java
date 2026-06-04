@@ -56,4 +56,9 @@ public class MobilityRelic extends Relic {
             player.teleport(recall.remove(id));
         }
     }
+
+    @Override
+public int getCustomModelData() {
+    return 101; // change per relic
+}
 }
