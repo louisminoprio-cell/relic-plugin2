@@ -57,5 +57,14 @@ public class ExecutionerRelic extends Relic {
         return 101; // change per relic
 }
 
+    private LivingEntity getTarget(Player player, double range) {
+        for (Entity e : player.getNearbyEntities(range, range, range)) {
+            if (e instanceof LivingEntity && e != player) {
+                return (LivingEntity) e;
+            }
+        }
+        return null;
+}
+
     // Passive handled in damage listener
 }
