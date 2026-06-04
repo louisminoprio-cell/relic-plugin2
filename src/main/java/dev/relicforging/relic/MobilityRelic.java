@@ -22,20 +22,20 @@ public class MobilityRelic extends Relic {
     private final Map<UUID, Location> recall = new HashMap<>();
 
     public MobilityRelic() {
-        super("Mobility Core", RelicType.UTILITY);
+        super("Mobility Core");
     }
 
     @Override
-    protected void doPrimary(Player player, PlayerRelicData data){
-        Location loc = player.getLocation().add(player.getLocation().getDirection().multiply(5));
+    protected void doPrimary(Player player, PlayerRelicData data) {
+        Location loc = player.getLocation().add(
+                player.getLocation().getDirection().multiply(5)
+        );
+
         player.teleport(loc);
-        return AbilityResult.SUCCESS;
     }
 
-
-
     @Override
-    protected void doSecondary(Player player, PlayerRelicData data){
+    protected void doSecondary(Player player, PlayerRelicData data) {
         UUID id = player.getUniqueId();
 
         if (!recall.containsKey(id)) {
@@ -50,7 +50,5 @@ public class MobilityRelic extends Relic {
         } else {
             player.teleport(recall.remove(id));
         }
-
-        return AbilityResult.SUCCESS;
     }
 }
