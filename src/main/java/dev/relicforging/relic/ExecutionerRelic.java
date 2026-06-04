@@ -29,7 +29,7 @@ public class ExecutionerRelic extends Relic {
     }
 
     @Override
-    public AbilityResult ability1(Player player) {
+    protected void doPrimary(Player player, PlayerRelicData data)
         LivingEntity target = getTarget(player, 4);
         if (target == null) return AbilityResult.FAIL;
 
@@ -42,8 +42,9 @@ public class ExecutionerRelic extends Relic {
         return AbilityResult.SUCCESS;
     }
 
+
     @Override
-    public AbilityResult ability2(Player player) {
+    protected void doSecondary(Player player, PlayerRelicData data)
         LivingEntity target = getTarget(player, 8);
         if (target == null) return AbilityResult.FAIL;
 
