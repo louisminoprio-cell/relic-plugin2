@@ -26,8 +26,9 @@ public class MobilityRelic extends Relic {
 
     private final Map<UUID, Location> recall = new HashMap<>();
 
-    public MobilityRelic() {
-        super("Mobility Core");
+   public ExecutionerRelic(RelicForgingPlugin plugin) {
+        super(plugin, "Executioner");
+}
     }
 
     @Override
