@@ -44,5 +44,10 @@ public class SoulboundRelic extends Relic {
         // TEMP: just message until we wire damage sharing
         player.sendMessage("§aSoul Link activated with " + ally.getName());
     }
+
+    @Override
+public int getCustomModelData() {
+    return 101; // change per relic
+}
 }
 
