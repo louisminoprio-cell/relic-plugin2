@@ -1,61 +1,37 @@
-package dev.relicforging.relic;
-
-import dev.relicforging.RelicForgingPlugin;
-import dev.relicforging.api.Relic;
-import dev.relicforging.api.RelicType;
-import dev.relicforging.data.PlayerRelicData;
-import dev.relicforging.integration.TeamCompatibility;
-import org.bukkit.*;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
-import org.bukkit.util.Vector;
-
-import java.util.Collection;
-
 public class ExecutionerRelic extends Relic {
 
     public ExecutionerRelic() {
-        super("Executioner", RelicType.OFFENSIVE);
+        super("Executioner");
     }
 
     @Override
-    public void onDamage(Player attacker, LivingEntity target, double[] damage) {
-        if (target.getHealth() <= target.getMaxHealth() * 0.35) {
-            damage[0] *= 1.2; // passive
-        }
-    }
-
-    @Override
-    protected void doPrimary(Player player, PlayerRelicData data){
+    protected void doPrimary(Player player, PlayerRelicData data) {
         LivingEntity target = getTarget(player, 4);
-        if (target == null) return AbilityResult.FAIL;
+        if (target == null) return;
 
-        double dmg = 4;
+        double damage = 4;
+
         if (target.getHealth() <= target.getMaxHealth() * 0.35) {
-            dmg += 3;
+            damage += 3;
         }
 
-        target.damage(dmg, player);
-        return AbilityResult.SUCCESS;
+        target.damage(damage, player);
     }
 
-
     @Override
-    protected void doSecondary(Player player, PlayerRelicData data){
+    protected void doSecondary(Player player, PlayerRelicData data) {
         LivingEntity target = getTarget(player, 8);
-        if (target == null) return AbilityResult.FAIL;
+        if (target == null) return;
 
         Bukkit.getScheduler().runTaskLater(plugin, () -> {
-            if (!target.isValid() || target.getLocation().distance(player.getLocation()) > 8) return;
+            if (!target.isValid()) return;
+            if (target.getLocation().distance(player.getLocation()) > 8) return;
 
-            double dmg = target.getHealth() > target.getMaxHealth() * 0.5 ? 8 : 12;
-            target.damage(dmg, player);
+            double damage = target.getHealth() > target.getMaxHealth() * 0.5 ? 8 : 12;
+            target.damage(damage, player);
 
-        }, 20);
-
-        return AbilityResult.SUCCESS;
+        }, 20); // 1 second
     }
+
+    // Passive handled in damage listener
 }
