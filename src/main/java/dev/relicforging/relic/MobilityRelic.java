@@ -59,6 +59,6 @@ public class MobilityRelic extends Relic {
 
     @Override
 public int getCustomModelData() {
-    return 101; // change per relic
+    return 103; // change per relic
 }
 }
