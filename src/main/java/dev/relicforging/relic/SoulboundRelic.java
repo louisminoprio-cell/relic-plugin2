@@ -31,11 +31,11 @@ public class SoulboundRelic extends Relic {
         double amount = 3;
 
         player.getWorld().spawnParticle(
-        org.bukkit.Particle.HEART,
+        org.bukkit.Particle.PORTAL,
         player.getLocation().add(0, 1, 0),
-        10,
+        25,
         0.5, 0.5, 0.5,
-        0
+        0.5
     );
 
         if (player.getHealth() <= 1) return;
@@ -48,6 +48,14 @@ public class SoulboundRelic extends Relic {
     public void doSecondary(Player player, PlayerRelicData data) {
         Player ally = getNearbyPlayer(player, 8);
         if (ally == null) return;
+
+            player.getWorld().spawnParticle(
+        org.bukkit.Particle.TRAIL_SPAWNER_DETECTION_OMINOUS,
+        player.getLocation().add(0, 1, 0),
+        50,
+        0.5, 0.5, 0.5,
+        0.5
+    );
 
         player.sendMessage("§aSoul Link activated with " + ally.getName());
     }
