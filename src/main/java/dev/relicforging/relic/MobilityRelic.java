@@ -37,6 +37,14 @@ public class MobilityRelic extends Relic {
                 player.getLocation().getDirection().multiply(5)
         );
 
+            player.getWorld().spawnParticle(
+        org.bukkit.Particle.CLOUD,
+        player.getLocation(),
+        20,
+        0.5, 0.2, 0.5,
+        0.05
+    );
+
         player.teleport(loc);
     }
 
