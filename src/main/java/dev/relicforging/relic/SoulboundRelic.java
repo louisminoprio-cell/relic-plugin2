@@ -30,6 +30,14 @@ public class SoulboundRelic extends Relic {
 
         double amount = 3;
 
+        player.getWorld().spawnParticle(
+        org.bukkit.Particle.HEART,
+        player.getLocation().add(0, 1, 0),
+        10,
+        0.5, 0.5, 0.5,
+        0
+    );
+
         if (player.getHealth() <= 1) return;
 
         player.setHealth(Math.max(1, player.getHealth() - amount));
