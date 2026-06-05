@@ -42,7 +42,7 @@ public class ExecutionerRelic extends Relic {
 
             player.getWorld().playSound(
         player.getLocation(),
-        org.bukkit.Sound.BLOCK.RESPAWN_ANCHOR.CHARGE,
+        org.bukkit.Sound.RESPAWN_ANCHOR.CHARGE,
         1f,
         1f
     );
