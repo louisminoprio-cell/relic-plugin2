@@ -32,6 +32,14 @@ public class ExecutionerRelic extends Relic {
 
         double damage = 4;
 
+            player.getWorld().spawnParticle(
+        org.bukkit.Particle.DAMAGE_INDICATOR,
+        player.getLocation().add(0, 1, 0),
+        15,
+        0.4, 0.4, 0.4,
+        0.1
+    );
+
         if (target.getHealth() <= target.getMaxHealth() * 0.35) {
             damage += 3;
         }
