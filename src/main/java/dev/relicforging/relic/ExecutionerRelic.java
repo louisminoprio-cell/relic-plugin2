@@ -16,7 +16,9 @@ public class ExecutionerRelic extends Relic {
         super(plugin);
     }
 
-   
+    @Override
+    public void applyPassive(Player player, PlayerRelicData data) {
+    }
 
     @Override
     public int getCustomModelData() {
