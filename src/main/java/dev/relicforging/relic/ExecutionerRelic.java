@@ -40,6 +40,13 @@ public class ExecutionerRelic extends Relic {
         0.1
     );
 
+            player.getWorld().playSound(
+        player.getLocation(),
+        org.bukkit.Sound.BLOCK.RESPAWN_ANCHOR.CHARGE,
+        1f,
+        1f
+    );
+
         if (target.getHealth() <= target.getMaxHealth() * 0.35) {
             damage += 3;
         }
