@@ -38,8 +38,8 @@ public class MobilityRelic extends Relic {
         );
 
             player.getWorld().spawnParticle(
-        org.bukkit.Particle.CLOUD,
-        player.getLocation(),
+        org.bukkit.Particle.WHITE_SMOKE,
+        player.getLocation(,0, -1, 0),
         20,
         0.5, 0.2, 0.5,
         0.05
@@ -64,6 +64,14 @@ public class MobilityRelic extends Relic {
         } else {
             player.teleport(recall.remove(id));
         }
+
+            player.getWorld().spawnParticle(
+        org.bukkit.Particle.SPIT,
+        player.getLocation(),
+        40,
+        0.5, 0.2, 0.5,
+        0.05
+    );
     }
 
     @Override
