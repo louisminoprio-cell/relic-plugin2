@@ -153,7 +153,7 @@ public class BurrowRelic extends Relic {
             double dist  = Math.random() * radius;
             double x = Math.cos(angle) * dist;
             double z = Math.sin(angle) * dist;
-            player.getWorld().spawnParticle(Particle.BLOCK,
+            player.getWorld().spawnParticle(Particle.EXPLOSION,
                 player.getLocation().add(x, 0.1, z),
                 5, 0.1, 0.5, 0.1, 0.05,
                 Material.GRAVEL.createBlockData());
