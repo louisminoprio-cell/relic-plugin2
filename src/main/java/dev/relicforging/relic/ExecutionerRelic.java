@@ -33,7 +33,7 @@ public class ExecutionerRelic extends Relic {
         double damage = 4;
 
             player.getWorld().spawnParticle(
-        org.bukkit.Particle.DAMAGE_INDICATOR,
+        org.bukkit.Particle.PORTAL,
         player.getLocation().add(0, 1, 0),
         15,
         0.4, 0.4, 0.4,
@@ -51,7 +51,15 @@ public class ExecutionerRelic extends Relic {
     public void doSecondary(Player player, PlayerRelicData data) {
         LivingEntity target = getTarget(player, 8);
         if (target == null) return;
-
+       
+            player.getWorld().spawnParticle(
+       org.bukkit.Particle.TOTEM_OF_UNDYING,
+                player.getLocation().add(0,1,0),
+                25,
+                0.5, 0.5, 0.5,
+                0.1
+            );
+        
         Bukkit.getScheduler().runTaskLater(plugin, () -> {
             if (!target.isValid()) return;
 
