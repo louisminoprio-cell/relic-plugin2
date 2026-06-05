@@ -33,7 +33,7 @@ public class ExecutionerRelic extends Relic {
         double damage = 4;
 
             player.getWorld().spawnParticle(
-        org.bukkit.Particle.PORTAL,
+        org.bukkit.Particle.EXPLOSION,
         player.getLocation().add(0, 1, 0),
         15,
         0.4, 0.4, 0.4,
@@ -53,9 +53,9 @@ public class ExecutionerRelic extends Relic {
         if (target == null) return;
        
             player.getWorld().spawnParticle(
-       org.bukkit.Particle.TOTEM_OF_UNDYING,
+       org.bukkit.Particle.DRIPPING_LAVA,
                 player.getLocation().add(0,1,0),
-                25,
+                50,
                 0.5, 0.5, 0.5,
                 0.1
             );
