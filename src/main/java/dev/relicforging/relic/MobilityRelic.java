@@ -26,7 +26,7 @@ public class MobilityRelic extends Relic {
     }
 
     @Override
-    protected void doPrimary(Player player, PlayerRelicData data) {
+    public void doPrimary(Player player, PlayerRelicData data) {
         Location loc = player.getLocation().add(
                 player.getLocation().getDirection().multiply(5)
         );
@@ -35,7 +35,7 @@ public class MobilityRelic extends Relic {
     }
 
     @Override
-    protected void doSecondary(Player player, PlayerRelicData data) {
+    public void doSecondary(Player player, PlayerRelicData data) {
         UUID id = player.getUniqueId();
 
         if (!recall.containsKey(id)) {
