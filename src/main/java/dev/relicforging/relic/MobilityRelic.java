@@ -15,6 +15,11 @@ import java.util.UUID;
 
 public class MobilityRelic extends Relic {
 
+    @Override
+    public void applyPassive(Player player, PlayerRelicData data) {
+    // TODO: add passive effect logic
+    }
+
     private final Map<UUID, Location> recall = new HashMap<>();
 
     public MobilityRelic(RelicForgingPlugin plugin) {
