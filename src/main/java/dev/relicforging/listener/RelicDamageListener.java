@@ -93,20 +93,20 @@ public class RelicDamageListener implements Listener {
             return;
         }
 
-         if (isSoulLinked(victim)) {
-            Player partner = getLinkedPlayer(victim);
-            double shared = event.getDamage() * 0.3;
+         //if (isSoulLinked(victim)) {
+           // Player partner = getLinkedPlayer(victim);
+           // double shared = event.getDamage() * 0.3;
 
-            event.setDamage(event.getDamage() * 0.7);
-            partner.damage(shared);
-        }
+           // event.setDamage(event.getDamage() * 0.7);
+           // partner.damage(shared);
+       // }
 
-        if (data.getEquippedType() == RelicType.EMBER
-            && data.getLevel(RelicType.EMBER) >= 20
-            && event.getEntity() instanceof LivingEntity
-            && event.getEntity().getFireTicks() > 0) {
+        //if (data.getEquippedType() == RelicType.EMBER
+           // && data.getLevel(RelicType.EMBER) >= 20
+            //&& event.getEntity() instanceof LivingEntity
+            //&& event.getEntity().getFireTicks() > 0) {
 
-            event.setDamage(event.getDamage() * 1.20);
-        }
+           // event.setDamage(event.getDamage() * 1.20);
+        //}
     }
 }
