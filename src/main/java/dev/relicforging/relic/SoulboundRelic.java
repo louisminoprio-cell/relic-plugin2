@@ -46,4 +46,8 @@ public class SoulboundRelic extends Relic {
         }
         return null;
     }
+    @Override
+    public RelicType getType() {
+        return RelicType.VANGUARD;
+    }
 }
