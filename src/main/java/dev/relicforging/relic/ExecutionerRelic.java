@@ -3,6 +3,7 @@ package dev.relicforging.relic;
 import dev.relicforging.RelicForgingPlugin;
 import dev.relicforging.api.Relic;
 import dev.relicforging.api.RelicType;
+import dev.relicforging.data.PlayerRelicData; 
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
