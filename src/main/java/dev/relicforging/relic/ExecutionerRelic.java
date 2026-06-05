@@ -16,10 +16,7 @@ public class ExecutionerRelic extends Relic {
         super(plugin);
     }
 
-    @Override
-    public RelicType getType() {
-        return RelicType.EXECUTIONER; // make sure this exists
-    }
+   
 
     @Override
     public int getCustomModelData() {
