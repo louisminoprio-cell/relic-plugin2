@@ -18,7 +18,7 @@ public class SoulboundRelic extends Relic {
     }
 
     @Override
-    protected void doPrimary(Player player, PlayerRelicData data) {
+    public void doPrimary(Player player, PlayerRelicData data) {
         Player ally = getNearbyPlayer(player, 6);
         if (ally == null) return;
 
@@ -31,7 +31,7 @@ public class SoulboundRelic extends Relic {
     }
 
     @Override
-    protected void doSecondary(Player player, PlayerRelicData data) {
+    public void doSecondary(Player player, PlayerRelicData data) {
         Player ally = getNearbyPlayer(player, 8);
         if (ally == null) return;
 
