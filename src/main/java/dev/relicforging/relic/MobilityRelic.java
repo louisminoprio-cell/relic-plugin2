@@ -51,4 +51,9 @@ public class MobilityRelic extends Relic {
             player.teleport(recall.remove(id));
         }
     }
+
+    @Override
+    public RelicType getType() {
+        return RelicType.VANGUARD;
+    }
 }
