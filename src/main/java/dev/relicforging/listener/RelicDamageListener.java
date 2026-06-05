@@ -26,7 +26,6 @@ public class RelicDamageListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
-    Player victim = (Player) event.getEntity();
     public void onTeamDamage(EntityDamageByEntityEvent event) {
         if (!(event.getEntity() instanceof Player victim)) {
             return;
