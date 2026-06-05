@@ -17,7 +17,7 @@ public class MobilityRelic extends Relic {
     private final Map<UUID, Location> recall = new HashMap<>();
 
     public MobilityRelic(RelicForgingPlugin plugin) {
-        super(plugin, "Mobility Core");
+        super(plugin);
     }
 
     @Override
