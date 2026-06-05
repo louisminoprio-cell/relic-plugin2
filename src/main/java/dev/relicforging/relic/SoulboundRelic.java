@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 public class SoulboundRelic extends Relic {
 
     public SoulboundRelic(RelicForgingPlugin plugin) {
-        super(plugin,);
+        super(plugin);
     }
 
     @Override
