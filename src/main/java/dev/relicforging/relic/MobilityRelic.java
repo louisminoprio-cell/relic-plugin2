@@ -39,7 +39,7 @@ public class MobilityRelic extends Relic {
 
             player.getWorld().spawnParticle(
         org.bukkit.Particle.WHITE_SMOKE,
-        player.getLocation(),
+        player.getLocation().add(0, -1, 0),
         20,
         0.5, 0.2, 0.5,
         0.05
