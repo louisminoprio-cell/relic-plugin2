@@ -50,7 +50,7 @@ public class SoulboundRelic extends Relic {
         if (ally == null) return;
 
             player.getWorld().spawnParticle(
-        org.bukkit.Particle.TRAIL_SPAWNER_DETECTION_OMINOUS,
+        org.bukkit.Particle.SHRIEK,
         player.getLocation().add(0, 1, 0),
         50,
         0.5, 0.5, 0.5,
