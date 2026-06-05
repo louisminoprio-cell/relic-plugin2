@@ -62,4 +62,9 @@ public class ExecutionerRelic extends Relic {
         }
         return null;
     }
+
+    @Override
+    public RelicType getType() {
+        return RelicType.VANGUARD;
+    }
 }
