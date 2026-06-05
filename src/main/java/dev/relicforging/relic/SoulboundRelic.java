@@ -51,4 +51,7 @@ public class SoulboundRelic extends Relic {
     public RelicType getType() {
         return RelicType.VANGUARD;
     }
+    @Override
+    public void removePassive(Player player) {
+    }
 }
