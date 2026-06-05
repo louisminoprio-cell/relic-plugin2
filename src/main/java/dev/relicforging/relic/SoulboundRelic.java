@@ -14,6 +14,11 @@ public class SoulboundRelic extends Relic {
     }
 
     @Override
+    public void applyPassive(Player player, PlayerRelicData data) {
+    // TODO: add passive effect logic
+    }
+
+    @Override
     public int getCustomModelData() {
         return 102;
     }
