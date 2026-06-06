@@ -7,6 +7,21 @@ import dev.relicforging.api.RelicType;
 
 import org.bukkit.entity.Player;
 
+
+private final java.util.Map<java.util.UUID, java.util.UUID> soulLinks = new java.util.HashMap<>();
+
+public void linkPlayers(Player p1, Player p2) {
+    soulLinks.put(p1.getUniqueId(), p2.getUniqueId());
+    soulLinks.put(p2.getUniqueId(), p1.getUniqueId());
+}
+
+public Player getLinkedPlayer(Player player) {
+    java.util.UUID linked = soulLinks.get(player.getUniqueId());
+    if (linked == null) return null;
+
+    return org.bukkit.Bukkit.getPlayer(linked);
+
+
 public class SoulboundRelic extends Relic {
 
     public SoulboundRelic(RelicForgingPlugin plugin) {
@@ -52,7 +67,8 @@ public class SoulboundRelic extends Relic {
         ally.setHealth(Math.min(ally.getMaxHealth(), ally.getHealth() + amount));
 
 
-        Player target = player;
+        PPlayer target = getLinkedPlayer(player);
+        if (target == null) return;
 
         if (target == null) return;
 
