@@ -38,6 +38,14 @@ public class SoulboundRelic extends Relic {
         0.5
     );
 
+                player.getWorld().playSound(
+        player.getLocation(),
+        org.bukkit.Sound.BLOCK_AMETHYST_BLOCK_CHIME,
+        1f,
+        0.9f
+    );
+
+
         if (player.getHealth() <= 1) return;
 
         player.setHealth(Math.max(1, player.getHealth() - amount));
@@ -56,6 +64,14 @@ public class SoulboundRelic extends Relic {
         0.5, 0.5, 0.5,
         0.5
     );
+
+                player.getWorld().playSound(
+        player.getLocation(),
+        org.bukkit.Sound.BLOCK_PORTAL_TRAVEL,
+        0.5f,
+        0.6f
+    );
+
 
         player.sendMessage("§aSoul Link activated with " + ally.getName());
     }
