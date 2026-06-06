@@ -237,4 +237,9 @@ public class RelicManager {
             return null;
         }
     }
+
+
+    public Player getSoulboundPartner(Player player) {
+        return plugin.getSoulboundRelic().getLinkedPlayer(player);
+    }
 }
