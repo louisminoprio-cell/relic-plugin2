@@ -159,4 +159,10 @@ public class SoulboundRelic extends Relic {
             current.add(direction);
         }
     }
+
+    public Player getLinkedPlayer(Player player) {
+        UUID partnerId = links.get(player.getUniqueId());
+        if (partnerId == null) return null;
+        return Bukkit.getPlayer(partnerId);
+    }
 }
