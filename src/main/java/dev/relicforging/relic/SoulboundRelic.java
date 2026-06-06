@@ -29,6 +29,11 @@ public class SoulboundRelic extends Relic {
     }
 
     @Override
+    public int getCustomModelData() {
+        return 1001; // you can change this number later
+    }
+
+    @Override
     public void applyPassive(Player player, PlayerRelicData data) {
         // No passive for now
     }
