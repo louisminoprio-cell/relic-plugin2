@@ -14,6 +14,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+
+
+
 public class SoulboundRelic extends Relic {
 
     // ✅ ONLY ONE MAP — UUID SAFE
@@ -21,6 +24,10 @@ public class SoulboundRelic extends Relic {
 
     // ✅ Prevent infinite damage loops
     private final Map<UUID, Long> recentlyDamaged = new HashMap<>();
+
+    private final Map<UUID, Long> passiveCooldown = new HashMap<>();
+
+    
 
     public SoulboundRelic(RelicForgingPlugin plugin) {
         super(plugin);
@@ -65,9 +72,9 @@ public class SoulboundRelic extends Relic {
 
     // ✨ Particles
     player.getWorld().spawnParticle(
-            org.bukkit.Particle.TOTEM,
+            org.bukkit.Particle.GLOW,
             player.getLocation().add(0, 1, 0),
-            30,
+            40,
             0.5, 0.5, 0.5,
             0.2
     );
