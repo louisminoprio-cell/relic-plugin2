@@ -45,6 +45,14 @@ public class MobilityRelic extends Relic {
         0.05
     );
 
+                player.getWorld().playSound(
+        player.getLocation(),
+        org.bukkit.Sound.ENTITY_ENDER_EYE_DEATH,
+        1.5f,
+        1.3f
+    );
+
+
         player.teleport(loc);
     }
 
@@ -72,6 +80,14 @@ public class MobilityRelic extends Relic {
         0.5, 0.2, 0.5,
         0.05
     );
+
+            player.getWorld().playSound(
+        player.getLocation(),
+        org.bukkit.Sound.ENTITY_LIGHTNING_BOLT_THUNDER,
+        0.5f,
+        1.3f
+    );
+
     }
 
     @Override
