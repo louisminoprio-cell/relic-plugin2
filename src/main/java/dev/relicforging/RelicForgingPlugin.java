@@ -6,6 +6,7 @@ import dev.relicforging.data.PlayerDataManager;
 import dev.relicforging.listener.*;
 import dev.relicforging.manager.RelicManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import dev.relicforging.relic.SoulboundRelic;
 
 
 public class RelicForgingPlugin extends JavaPlugin {
