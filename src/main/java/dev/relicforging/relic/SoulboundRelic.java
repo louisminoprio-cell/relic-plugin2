@@ -196,6 +196,6 @@ public class SoulboundRelic extends Relic {
     }
 
     if (victim.isDead() || partner.isDead() || victim.getLocation().distance(partner.getLocation()) > 30) {
-        relic.unlink(victim);
+        relic.unlink(victim);}
     }
 }
