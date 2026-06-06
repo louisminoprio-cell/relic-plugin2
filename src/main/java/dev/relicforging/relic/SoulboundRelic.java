@@ -36,11 +36,54 @@ public class SoulboundRelic extends Relic {
         return 1001;
     }
 
-    @Override
+            @Override
     public void applyPassive(Player player, PlayerRelicData data) {
-        // no passive
+
+    UUID id = player.getUniqueId();
+
+    double maxHealth = player.getMaxHealth();
+    double currentHealth = player.getHealth();
+
+    // ❤️ Trigger when under 20% HP
+    if (currentHealth > maxHealth * 0.2) return;
+
+    // ❗ Prevent re-trigger if shield already active
+    if (player.getAbsorptionAmount() > 0) return;
+
+    long now = System.currentTimeMillis();
+
+    // ⏳ Cooldown check (5 minutes)
+    if (passiveCooldown.containsKey(id)) {
+        long lastUsed = passiveCooldown.get(id);
+        if ((now - lastUsed) < 300000) {
+            return;
+        }
     }
 
+    // 🛡️ Give 4 hearts (8 HP) absorption
+    player.setAbsorptionAmount(8.0);
+
+    // ✨ Particles
+    player.getWorld().spawnParticle(
+            org.bukkit.Particle.TOTEM,
+            player.getLocation().add(0, 1, 0),
+            30,
+            0.5, 0.5, 0.5,
+            0.2
+    );
+
+    // 🔊 Sound
+    player.playSound(
+            player.getLocation(),
+            org.bukkit.Sound.ITEM_TOTEM_USE,
+            1f,
+            1f
+    );
+
+    // ⏳ Save cooldown
+    passiveCooldown.put(id, now);
+    }
+    
     @Override
     public void removePassive(Player player) {
         unlink(player);
