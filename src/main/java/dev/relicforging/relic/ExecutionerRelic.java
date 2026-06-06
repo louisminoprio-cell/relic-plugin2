@@ -42,9 +42,9 @@ public class ExecutionerRelic extends Relic {
 
             player.getWorld().playSound(
         player.getLocation(),
-        org.bukkit.Sound.RESPAWN_ANCHOR,
+        org.bukkit.Sound.BLOCK_RESPAWN_ANCHOR_CHARGE,
         1f,
-        1f
+        0.8f
     );
 
         if (target.getHealth() <= target.getMaxHealth() * 0.35) {
@@ -66,6 +66,16 @@ public class ExecutionerRelic extends Relic {
                 0.5, 0.5, 0.5,
                 0.1
             );
+
+                player.getWorld().playSound(
+        player.getLocation(),
+        org.bukkit.Sound.ENTITY_ENDER_DRAGON_GROWL,
+        1f,
+        0.7f
+    );
+
+
+        
         
         Bukkit.getScheduler().runTaskLater(plugin, () -> {
             if (!target.isValid()) return;
