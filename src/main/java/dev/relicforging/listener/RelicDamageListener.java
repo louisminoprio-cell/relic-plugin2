@@ -96,8 +96,9 @@ public class RelicDamageListener implements Listener {
         Bukkit.getScheduler().runTask(plugin, () -> {
             if (!partner.isDead()) {
                 partner.damage(sharedDamage);
-            }
-        });
+                }
+            });
+        }
     }
 
     // ----------------------------------------------------------------
