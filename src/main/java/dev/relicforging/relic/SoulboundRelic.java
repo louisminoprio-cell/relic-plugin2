@@ -52,7 +52,7 @@ public class SoulboundRelic extends Relic {
         ally.setHealth(Math.min(ally.getMaxHealth(), ally.getHealth() + amount));
 
 
-        Player target = /* however you get the linked player */;
+        Player target = getLinkedPlayer(player);
 
         if (target == null) return;
 
