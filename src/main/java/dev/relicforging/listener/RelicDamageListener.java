@@ -2,6 +2,7 @@
 package dev.relicforging.listener;
 
 import dev.relicforging.RelicForgingPlugin;
+import dev.relicforging.relic.SoulboundRelic;
 import dev.relicforging.api.RelicType;
 import dev.relicforging.data.PlayerRelicData;
 import dev.relicforging.integration.TeamCompatibility;
@@ -13,6 +14,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.Bukkit;
 
 /**
  * Intercepts damage events to apply relic-specific passive damage modifiers.
