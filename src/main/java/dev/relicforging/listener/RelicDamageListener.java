@@ -39,25 +39,20 @@ public class RelicDamageListener implements Listener {
         // ❗ Prevent infinite loop
         if (relic.processing.contains(victim)) return;
 
-        Player partner = relic.getLinked(victim);
+        Player partner = relic.getLinkedPlayer(victim);
         if (partner == null || !partner.isOnline()) return;
     
         double shared = event.getDamage() * 0.3;
 
         // Reduce original damage
         event.setDamage(event.getDamage() * 0.7);
-    
-        // Mark both as processing
-        relic.processing.add(victim);
-        relic.processing.add(partner);
 
         // Apply shared damage
         partner.damage(shared);
 
         // Remove processing after tick
         Bukkit.getScheduler().runTaskLater(plugin, () -> {
-        relic.processing.remove(victim);
-        relic.processing.remove(partner);
+       
         }, 1L);
     }
 
@@ -83,6 +78,26 @@ public class RelicDamageListener implements Listener {
         if (TeamCompatibility.areTeammates(attacker, victim)) {
             event.setCancelled(true);
         }
+    }
+
+    SoulboundRelic relic = plugin.getSoulboundRelic();
+
+    Player partner = relic.getLinkedPlayer(victim);
+
+    if (partner != null && partner.isOnline()) {
+
+        double originalDamage = event.getDamage();
+        double sharedDamage = originalDamage * 0.3;
+
+        // reduce victim damage
+        event.setDamage(originalDamage * 0.7);
+
+        // safely damage partner (next tick to prevent recursion)
+        Bukkit.getScheduler().runTask(plugin, () -> {
+            if (!partner.isDead()) {
+                partner.damage(sharedDamage);
+            }
+        });
     }
 
     // ----------------------------------------------------------------
