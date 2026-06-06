@@ -33,6 +33,7 @@ public class RelicForgingPlugin extends JavaPlugin {
     // can reach them without singletons or static state.
     private RelicManager      relicManager;
     private PlayerDataManager dataManager;
+    private SoulboundRelic soulboundRelic;
 
     // ----------------------------------------------------------------
     // Lifecycle
@@ -42,6 +43,8 @@ public class RelicForgingPlugin extends JavaPlugin {
     public void onEnable() {
         // Step 1: write config.yml to disk if it doesn't exist yet.
         saveDefaultConfig();
+
+        soulboundRelic = new SoulboundRelic(this);
 
         // Step 2: initialise all NamespacedKeys with a reference to this plugin.
         //         Must happen before RelicManager tries to stamp relic items with NBT.
@@ -78,6 +81,11 @@ public class RelicForgingPlugin extends JavaPlugin {
 
         getLogger().info("RelicForging enabled successfully!");
         getLogger().info("Run /relicadmin give <player> <relic> to hand out your first relic.");
+
+        
+        public SoulboundRelic getSoulboundRelic() {
+            return soulboundRelic;
+}
     }
 
     @Override
