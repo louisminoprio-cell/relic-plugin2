@@ -50,6 +50,43 @@ public class SoulboundRelic extends Relic {
 
         player.setHealth(Math.max(1, player.getHealth() - amount));
         ally.setHealth(Math.min(ally.getMaxHealth(), ally.getHealth() + amount));
+
+
+        Player target = /* however you get the linked player */;
+
+        if (target == null) return;
+
+        // Run a short beam animation
+        new org.bukkit.scheduler.BukkitRunnable() {
+            double t = 0;
+
+    @Override
+    public void run() {
+        if (t > 1.0 || !player.isOnline() || !target.isOnline()) {
+            cancel();
+            return;
+        }
+
+        org.bukkit.Location start = player.getLocation().add(0, 1, 0);
+        org.bukkit.Location end = target.getLocation().add(0, 1, 0);
+
+        org.bukkit.util.Vector direction = end.toVector().subtract(start.toVector());
+
+        for (double i = 0; i < 1; i += 0.1) {
+            org.bukkit.Location point = start.clone().add(direction.clone().multiply(i));
+
+            player.getWorld().spawnParticle(
+                org.bukkit.Particle.END_ROD,
+                point,
+                1,
+                0, 0, 0,
+                0
+            );
+            }
+
+            t += 0.1;
+            }
+        }.runTaskTimer(plugin, 0L, 2L);
     }
 
     @Override
