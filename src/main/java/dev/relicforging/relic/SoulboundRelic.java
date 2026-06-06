@@ -16,6 +16,30 @@ import java.util.UUID;
 
 public class SoulboundRelic extends Relic {
 
+    private final Map<Player, Player> links = new HashMap<>();
+    private final Set<Player> processing = new HashSet<>();
+
+
+    public void linkPlayers(Player a, Player b) {
+        links.put(a, b);
+        links.put(b, a);
+    }
+
+    public void unlink(Player p) {
+        Player other = links.remove(p);
+        if (other != null) {
+            links.remove(other);
+        }
+    }
+
+    public Player getLinked(Player p) {
+        return links.get(p);
+    }
+
+    public boolean isLinked(Player p) {
+        return links.containsKey(p);
+    }    
+
     // ✅ ADDED: stores linked players
     private final Map<UUID, UUID> links = new HashMap<>();
 
