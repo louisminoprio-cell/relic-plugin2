@@ -195,7 +195,9 @@ public class SoulboundRelic extends Relic {
         return Bukkit.getPlayer(partnerId);
     }
 
-    if (victim.isDead() || partner.isDead() || victim.getLocation().distance(partner.getLocation()) > 30) {
-        relic.unlink(victim);}
+    public void checkLink(Player victim, Player partner) {
+    if (victim.isDead() || partner.isDead()) {
+        unlink(victim);
+        }
     }
 }
