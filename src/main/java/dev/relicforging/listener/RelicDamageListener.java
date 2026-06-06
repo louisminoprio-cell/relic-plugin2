@@ -25,6 +25,42 @@ public class RelicDamageListener implements Listener {
         this.plugin = plugin;
     }
 
+
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    public void onSoulLinkDamage(EntityDamageEvent event) {
+        if (!(event.getEntity() instanceof Player victim)) return;
+    
+        SoulboundRelic relic = plugin.getSoulboundRelic();
+    
+        if (!relic.isLinked(victim)) return;
+    
+        // ❗ Prevent infinite loop
+        if (relic.processing.contains(victim)) return;
+
+        Player partner = relic.getLinked(victim);
+        if (partner == null || !partner.isOnline()) return;
+    
+        double shared = event.getDamage() * 0.3;
+
+        // Reduce original damage
+        event.setDamage(event.getDamage() * 0.7);
+    
+        // Mark both as processing
+        relic.processing.add(victim);
+        relic.processing.add(partner);
+
+        // Apply shared damage
+        partner.damage(shared);
+
+        // Remove processing after tick
+        Bukkit.getScheduler().runTaskLater(plugin, () -> {
+        relic.processing.remove(victim);
+        relic.processing.remove(partner);
+        }, 1L);
+    }
+
+
+    
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onTeamDamage(EntityDamageByEntityEvent event) {
         if (!(event.getEntity() instanceof Player victim)) {
