@@ -60,6 +60,44 @@ public class RelicDamageListener implements Listener {
 
         RelicType equipped = data.getEquippedType();
 
+        // ================= SOULBOUND DAMAGE SHARE =================
+        if (equipped == RelicType.SOULBOUND) {
+
+            Player partner = plugin.getRelicManager().getSoulboundPartner(player);
+
+            if (partner != null && partner.isOnline()) {
+
+                double damage = event.getDamage();
+                double shared = damage * 0.3;
+
+                // reduce original damage
+                event.setDamage(damage * 0.7);
+
+                // apply shared damage safely
+                partner.damage(shared);
+
+                // ✨ particles between players
+                player.getWorld().spawnParticle(
+                        org.bukkit.Particle.SOUL_FIRE_FLAME,
+                        player.getLocation().add(0, 1, 0),
+                        10
+                );
+
+                partner.getWorld().spawnParticle(
+                        org.bukkit.Particle.SOUL_FIRE_FLAME,
+                        partner.getLocation().add(0, 1, 0),
+                        10
+                );
+
+                // 🔊 sound feedback
+                player.playSound(player.getLocation(),
+                        org.bukkit.Sound.ENTITY_WITHER_HURT, 1f, 1.2f);
+
+                partner.playSound(partner.getLocation(),
+                        org.bukkit.Sound.ENTITY_WITHER_HURT, 1f, 1.2f);
+            }
+        }
+
         if (equipped == RelicType.GALE
             && event.getCause() == EntityDamageEvent.DamageCause.FALL) {
 
